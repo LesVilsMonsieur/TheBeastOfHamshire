@@ -10,10 +10,9 @@ export class AccueilComponent implements OnInit {
 
   constructor(private globalService: GlobalService){}
 
-  audioOuverture = new Audio();
+  readonly audioOuverture = new Audio("/assets/Music_OuvertureMenu.wav");
 
   ngOnInit(): void {
-    this.audioOuverture.src = "/assets/Music_OuvertureMenu.wav";
     this.audioOuverture.load();
     this.audioOuverture.play();
   }
@@ -22,7 +21,6 @@ export class AccueilComponent implements OnInit {
     this.globalService.player.positionX = 100;
     this.globalService.player.positionY = 100;
     this.audioOuverture.pause();
-
   }
 
 }
