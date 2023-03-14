@@ -32,9 +32,9 @@ export class GlobalService {
         currentHealth : 200,
         maxHealth : 200,
         damage : 10,
-        combatImageUrl : 'assets/Chasseurcombat.png',
-        dialogImageUrl : 'assets/Chasseurguillaume2.png',
-        combatImageSangUrl : 'assets/ChasseurcombatSANGOVERFIXXXXX.png'
+        combatImageUrl : '/assets/Chasseurcombat.png',
+        dialogImageUrl : '/assets/Chasseurguillaume2.png',
+        combatImageSangUrl : '/assets/ChasseurcombatSANGOVERFIXXXXX.png'
     }
 
     hunter2 : Enemy = {
@@ -43,9 +43,9 @@ export class GlobalService {
         currentHealth : 100,
         maxHealth : 100,
         damage : 10,
-        combatImageUrl : 'assets/Chaseressecombat.png',
-        dialogImageUrl : 'assets/Chasseresseguillaume2.png',
-        combatImageSangUrl : 'assets/ChaseressecombatSANGOVER.png'
+        combatImageUrl : '/assets/Chaseressecombat.png',
+        dialogImageUrl : '/assets/Chasseresseguillaume2.png',
+        combatImageSangUrl : '/assets/ChaseressecombatSANGOVER.png'
     }
 
     //Player
@@ -85,9 +85,9 @@ export class GlobalService {
         currentHealth : 400,
         maxHealth : 400,
         damage : 20,
-        combatImageUrl : 'assets/Monstre.png',
+        combatImageUrl : '/assets/Monstre.png',
         dialogImageUrl : '',
-        combatImageSangUrl : 'assets/MonstreSANGOVER.png'
+        combatImageSangUrl : '/assets/MonstreSANGOVER.png'
     }
 
 
@@ -98,7 +98,7 @@ export class GlobalService {
         currentHealth : 50,
         maxHealth : 50,
         damage : 10,
-        combatImageUrl : 'assets/Chien.png',
+        combatImageUrl : '/assets/Chien.png',
         dialogImageUrl : '',
         combatImageSangUrl : ''
     }
@@ -111,7 +111,7 @@ export class GlobalService {
         currentHealth : 50,
         maxHealth : 50,
         damage : 10,
-        combatImageUrl : 'assets/Chien.png',
+        combatImageUrl : '/assets/Chien.png',
         dialogImageUrl : '',
         combatImageSangUrl : ''
     }

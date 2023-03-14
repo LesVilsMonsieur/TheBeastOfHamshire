@@ -15,10 +15,10 @@ export class Map13Component implements OnInit {
   audio13 = new Audio();
 
   ngOnInit(): void {
-    this.audioThunder.src = "assets/SFX_Thunder2.wav";
-    this.audioPas1.src = "assets/SFX_FootstepsDirt1.wav";
-    this.audioPas2.src = "assets/SFX_FootstepsLeaves2.wav";
-    this.audio13.src = "assets/Music_Exploration.wav";
+    this.audioThunder.src = "../assets/SFX_Thunder2.wav";
+    this.audioPas1.src = "../assets/SFX_FootstepsDirt1.wav";
+    this.audioPas2.src = "../assets/SFX_FootstepsLeaves2.wav";
+    this.audio13.src = "../assets/Music_Exploration.wav";
     this.audio13.load();
     this.audio13.play();
     this.audioPas1.load();

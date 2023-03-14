@@ -14,8 +14,8 @@ export class GameoverComponent implements OnInit {
   audioMort = new Audio();
 
   ngOnInit(): void {
-    this.audioFin.src = "assets/Music_Fin.wav";
-    this.audioMort.src = "assets/Stinger_Mort.wav";
+    this.audioFin.src = "../assets/Music_Fin.wav";
+    this.audioMort.src = "../assets/Stinger_Mort.wav";
     this.audioMort.load();
     this.audioMort.play();
     this.audioFin.load();

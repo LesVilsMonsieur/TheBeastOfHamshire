@@ -16,11 +16,11 @@ export class Map42Component implements OnInit {
   audioPas2 = new Audio();
 
   ngOnInit(): void {
-    this.audio42.src = "assets/Music_Exploration.wav";
-    this.audioThunder.src = "assets/SFX_Thunder2.wav";
-    this.audioPapier.src = "assets/SFX_Papier1.wav";
-    this.audioPas1.src = "assets/SFX_FootstepsDirt1.wav";
-    this.audioPas2.src = "assets/SFX_FootstepsLeaves2.wav";
+    this.audio42.src = "../assets/Music_Exploration.wav";
+    this.audioThunder.src = "../assets/SFX_Thunder2.wav";
+    this.audioPapier.src = "../assets/SFX_Papier1.wav";
+    this.audioPas1.src = "../assets/SFX_FootstepsDirt1.wav";
+    this.audioPas2.src = "../assets/SFX_FootstepsLeaves2.wav";
     this.audioPas1.load();
     this.audioPas2.load();
     this.audioPapier.load();

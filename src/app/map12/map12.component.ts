@@ -14,9 +14,9 @@ export class Map12Component implements OnInit {
   audioPas2 = new Audio();
 
   ngOnInit(): void {
-    this.audio12.src = "assets/Music_Exploration.wav";
-    this.audioPas1.src = "assets/SFX_FootstepsDirt1.wav";
-    this.audioPas2.src = "assets/SFX_FootstepsLeaves2.wav";
+    this.audio12.src = "../assets/Music_Exploration.wav";
+    this.audioPas1.src = "../assets/SFX_FootstepsDirt1.wav";
+    this.audioPas2.src = "../assets/SFX_FootstepsLeaves2.wav";
     this.audioPas1.load();
     this.audioPas2.load();
     this.audio12.load();
