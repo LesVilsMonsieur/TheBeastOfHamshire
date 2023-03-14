@@ -130,7 +130,7 @@ export class CombatComponent implements OnInit {
       this._globalService.player.positionX = 500;
       this._globalService.player.positionY = 500;
       alert("Jhon vous a trahi")
-      this._globalService.finalQuote = "Aucune chance que je sépare la prime, Gamin!"
+      this._globalService.finalQuote = "Aucune chance que je sépare la prime, gamin!"
     }
     this.playerAttacking = false;
     
@@ -159,16 +159,16 @@ export class CombatComponent implements OnInit {
 
 
       if(this.currentEnemy.id == 1) {
-        this._globalService.finalQuote = "Vous avez été tué par le chasseur. En regardant votre cadavre atteindre le sol il vous lanche :  Un peu trop ambitieux pour un gamin."
+        this._globalService.finalQuote = "Vous avez été tué par le chasseur. En regardant votre cadavre atteindre le sol il vous lance :  Un peu trop ambitieux pour un gamin."
       }
       if(this.currentEnemy.id == 2) {
-        this._globalService.finalQuote = "La chasseresse à mis fin à vos jours.  Si seulement vous aviez pu faire équipe avec elle. "
+        this._globalService.finalQuote = "La chasseresse à mis fin à vos jours. Si seulement vous aviez pu faire équipe avec elle. "
       }
       if(this.currentEnemy.id == 3 && !this._globalService.isTraitorHelping === true) {
-        this._globalService.finalQuote = "La grande bête de HamShire vous a terrassé. Qui pourra pourras mettre fin à la nuit éternelle ?  Peut-être qu'un de meilleure arme ou l'aide de quelqu'un aurait pu vous aider"
+        this._globalService.finalQuote = "La grande bête de Hamshire vous a terrassée. Qui pourra mettre fin à la nuit éternelle ?  Peut-être qu'une meilleure arme ou l'aide de quelqu'un aurait pu vous aider"
       }
       if(this.currentEnemy.id == 3 && this._globalService.isTraitorHelping === true) {
-        this._globalService.finalQuote = " Trahison "
+        this._globalService.finalQuote = "Vous avez été tué par le chasseur. En regardant votre cadavre atteindre le sol il vous lance :  Un peu trop ambitieux pour un gamin."
       }
       if(this.currentEnemy.id == 4) {
         this._globalService.finalQuote = "Vous avez été tué par un monstre de la forêt, quelle malchance."
@@ -206,7 +206,7 @@ export class CombatComponent implements OnInit {
 
   switchWeapon() {
     this._globalService.player.damage = this.weaponList[this.weaponIndex].damage;
-    alert("Vous venez d'equiper " + this.weaponList[this.weaponIndex].name);
+    alert("Vous venez d'équiper " + this.weaponList[this.weaponIndex].name);
     this.weaponIndex++;
     if(this.weaponIndex === 3) {
       this.weaponIndex = 0;

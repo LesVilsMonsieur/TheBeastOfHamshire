@@ -32,7 +32,7 @@ export class DialogComponent implements OnInit {
 
     if(this.currentEnemy.id == 1) {
       this.audioDialogM.play();
-      this.currentDialog = this.currentEnemy.name + " : Tu ne sera pas un obstacle a mon enrichissement, gamin...";
+      this.currentDialog = this.currentEnemy.name + " : Tu ne sera pas un obstacle à mon enrichissement, gamin...";
     }
     if(this.currentEnemy.id == 2) {
       this.audioDialogF.play();
@@ -47,15 +47,15 @@ export class DialogComponent implements OnInit {
     this.currentDialog = '';
     if(this.currentEnemy.id == 1) {
       this.audioCrayon.play();
-      this.myCurrentDialog = "Moi : J'ai vu qu'il avait une prime de 500 livres pour tuer la bete, voudriez-vous faire equipe et partager la prime?"
+      this.myCurrentDialog = "Moi : J'ai vu qu'il avait une prime de 500 livres pour tuer la bete, voudriez-vous faire équipe et partager cette somme?"
       setTimeout(() => {
         this.audioCrayon.play();
         if(this._globalService.isFriendlyHelping) {
-          this.currentDialog = this.currentEnemy.name + " : Séparé la prime en trois part ? Quelle idiotie gamin!"
+          this.currentDialog = this.currentEnemy.name + " : Séparer la prime en trois parts ? Quelle idiotie gamin!"
         } else {
           
     this._globalService.isTraitorHelping =true;
-          this.currentDialog = this.currentEnemy.name + " : Astucieux gamin... Je suis d'accord.  On divise la prime à part égal.  On se rejoint sur le champ de bataille."
+          this.currentDialog = this.currentEnemy.name + " : Astucieux gamin... Je suis d'accord. On divise la prime à part égal.  On se rejoint sur le champ de bataille."
         }
       }, 1000)
       
@@ -63,7 +63,7 @@ export class DialogComponent implements OnInit {
     if(this.currentEnemy.id == 2) {
       this._globalService.isFriendlyHelping =true;
       this.audioCrayon.play();
-      this.myCurrentDialog = "Moi : Etes-vous la chasseuse qui s'est fait enlever sa soeur par la bete? Voudriez-vous faire equipe?"
+      this.myCurrentDialog = "Moi : Êtes-vous la chasseresse qui s'est fait enlever sa soeur par la bête? Voudriez-vous faire équipe?"
       setTimeout(() => {
         this.audioCrayon.play();
         if(this._globalService.isTraitorHelping) {
