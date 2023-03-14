@@ -10,7 +10,7 @@ export class AccueilComponent implements OnInit {
 
   constructor(private globalService: GlobalService){}
 
-  readonly audioOuverture = new Audio("/assets/Music_OuvertureMenu.wav");
+  readonly audioOuverture = new Audio("assets/Music_OuvertureMenu.wav");
 
   ngOnInit(): void {
     this.audioOuverture.load();

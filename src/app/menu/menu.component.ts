@@ -15,9 +15,9 @@ export class MenuComponent implements OnInit {
   audioDepart = new Audio();
 
   ngOnInit(): void {
-    this.audioIntro.src = "../assets/Ouverture-Intro_90bpm_4-4_L25m_P0b.wav";
-    this.audioClick.src = "../assets/SFX_Click-Menu.wav";
-    this.audioDepart.src = "../assets/SFX_GO-TopDepart.wav";
+    this.audioIntro.src = "assets/Ouverture-Intro_90bpm_4-4_L25m_P0b.wav";
+    this.audioClick.src = "assets/SFX_Click-Menu.wav";
+    this.audioDepart.src = "assets/SFX_GO-TopDepart.wav";
     this.audioDepart.load();
     this.audioIntro.load();
     this.audioClick.load();

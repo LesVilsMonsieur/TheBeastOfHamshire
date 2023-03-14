@@ -18,11 +18,11 @@ export class CombatComponent implements OnInit {
   audioCochon = new Audio();
 
   ngOnInit(): void {
-    this.audioCombatChasseur.src = "../assets/Music_Combat_Chasseur.wav";
-    this.audioCombatChasseresse.src = "../assets/Music_Combat_ChasseurFeminin.wav";
-    this.audioShotGun.src = "../assets/SFX_Shotgun.wav";
-    this.audioCombatBoss.src = "../assets/Music_Combat_BossFinal.wav";
-    this.audioCochon.src = "../assets/SFX_Cochon2.wav";
+    this.audioCombatChasseur.src = "assets/Music_Combat_Chasseur.wav";
+    this.audioCombatChasseresse.src = "assets/Music_Combat_ChasseurFeminin.wav";
+    this.audioShotGun.src = "assets/SFX_Shotgun.wav";
+    this.audioCombatBoss.src = "assets/Music_Combat_BossFinal.wav";
+    this.audioCochon.src = "assets/SFX_Cochon2.wav";
     this.audioCochon.load();
     this.audioCombatBoss.load();
     this.audioShotGun.load();

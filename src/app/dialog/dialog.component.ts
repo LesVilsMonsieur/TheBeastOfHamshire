@@ -22,9 +22,9 @@ export class DialogComponent implements OnInit {
   constructor(public _globalService : GlobalService) {}
 
   ngOnInit(): void {
-    this.audioCrayon.src = "/assets/SFX_Crayon1.wav";
-    this.audioDialogM.src = "/assets/Music_Dialogue_Chasseur.wav"
-    this.audioDialogF.src = "//assets/Music_Dialogue_ChasseurFeminin.wav"
+    this.audioCrayon.src = "assets/SFX_Crayon1.wav";
+    this.audioDialogM.src = "assets/Music_Dialogue_Chasseur.wav"
+    this.audioDialogF.src = "assets/Music_Dialogue_ChasseurFeminin.wav"
     this.audioDialogM.load();
     this.audioDialogF.load();
     this.audioCrayon.load();
