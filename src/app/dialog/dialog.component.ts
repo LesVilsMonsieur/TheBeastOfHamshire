@@ -30,17 +30,42 @@ export class DialogComponent implements OnInit {
     this.audioCrayon.load();
     this.audioCrayon.play();
 
-    if(this.currentEnemy.id == 1) {
+
+      // Dialogue avec Jhon et SANS alliance
+    if(this.currentEnemy.id == 1 && !this._globalService.isTraitorHelping) {
       this.audioDialogM.play();
       this.currentDialog = this.currentEnemy.name + " : Tu ne sera pas un obstacle à mon enrichissement, gamin...";
+
+      this._globalService.isCombatTraitor = false;
     }
-    if(this.currentEnemy.id == 2) {
+
+
+      // Dialogue avec Jhon et AVEC alliance
+    if(this.currentEnemy.id == 1 &&  this._globalService.isTraitorHelping) {
+      this.audioDialogM.play();
+      this.currentDialog = this.currentEnemy.name + " : On se rejoint sur le champ de bataille gamin, question de teresser la bête et d'empocher la prime.";
+
+      this._globalService.isCombatTraitor = false;
+    }
+
+
+      // Dialogue avec Louise et SANS alliance
+    if(this.currentEnemy.id == 2 && !this._globalService.isFriendlyHelping) {
       this.audioDialogF.play();
       this.currentDialog = this.currentEnemy.name + " : Mon carreau saura trouver sa cible.";
+
+      this._globalService.isCombatFriendly = false;
+    }
+
+     // Dialogue avec Louise et AVEC alliance
+    if(this.currentEnemy.id == 2 && this._globalService.isFriendlyHelping) {
+      this.audioDialogF.play();
+      this.currentDialog = this.currentEnemy.name + " : Allons pourfendre la bête et venger le souvenir de ma soeur.";
+
+      this._globalService.isCombatFriendly = false;
     }
     
-    this._globalService.isCombatTraitor = false;
-    this._globalService.isCombatFriendly = false;
+    
   }
 
   teamUp() {
