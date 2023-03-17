@@ -59,7 +59,7 @@ export class Map20Component implements OnInit {
   }
 
   getHax() {
-    this.globalService.isAxePickedUp = true;
+    this.globalService.player.weaponPickedUp.push(this.globalService.axe);
     alert("Vous venez de récupérer une hache!")
   }
 }

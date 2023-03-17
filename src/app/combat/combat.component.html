@@ -3,20 +3,20 @@
 
 
     <div class="vie_enemy">
-      <p>PV : {{currentEnemy.currentHealth}}/{{currentEnemy.maxHealth}}</p>
+      <p>Vie de l'ennemie : {{currentEnemy.currentHealth}}/{{currentEnemy.maxHealth}}</p>
     </div>
-    <img src={{currentEnemy.combatImageUrl}} *ngIf="playerAttacking === false">
-    <img src={{currentEnemy.combatImageSangUrl}} *ngIf="playerAttacking === true">
+    <img src={{currentEnemy.combatImageUrl}} *ngIf="isPlayerTurn">
+    <img src={{currentEnemy.combatImageSangUrl}} *ngIf="!isPlayerTurn">
     <div class="vie_player">
-      <p class="sans-rouge" *ngIf="enemyAttacking === false">PV : {{player.currentHealth}}/{{player.maxHealth}}</p>
-      <p class="rouge" *ngIf="enemyAttacking === true">PV : {{player.currentHealth}}/{{player.maxHealth}}</p>
+      <p class="sans-rouge" *ngIf="isPlayerTurn">Votre vie : {{player.currentHealth}}/{{player.maxHealth}}</p>
+      <p class="rouge" *ngIf="!isPlayerTurn">Votre vie : {{player.currentHealth}}/{{player.maxHealth}}</p>
     </div>
   </div>
   <div class="actions">
 
-    <div class="button-action"> <button (click)="attackEnemy()" [disabled]="playerTurnCheck()">Attaquer</button>
-    <button (click)="defense()" [disabled]="playerTurnCheck()">Défendre</button>
-    <button (click)="switchWeapon()" [disabled]="playerTurnCheck()">Changer d'arme</button>
+    <div class="button-action"> <button (click)="attackEnemy()" [disabled]="!isPlayerTurn">Attaquer</button>
+    <button (click)="defend()" [disabled]="!isPlayerTurn">Défendre</button>
+    <button (click)="switchWeapon()" [disabled]="!isPlayerTurn">Changer d'arme</button>
     </div>
 
 

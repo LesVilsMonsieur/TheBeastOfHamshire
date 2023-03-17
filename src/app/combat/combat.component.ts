@@ -18,6 +18,8 @@ export class CombatComponent implements OnInit {
   audioCochon = new Audio();
 
   ngOnInit(): void {
+    this._globalService.player.currentHealth = 100;
+
     this.audioCombatChasseur.src = "../assets/Music_Combat_Chasseur.wav";
     this.audioCombatChasseresse.src = "../assets/Music_Combat_ChasseurFeminin.wav";
     this.audioShotGun.src = "../assets/SFX_Shotgun.wav";
@@ -46,174 +48,115 @@ export class CombatComponent implements OnInit {
 
   currentEnemy = this._globalService.currentEnemy;
   player = this._globalService.player;
-  weaponList = this._globalService.weaponList;
-  weaponIndex = 0;
-  playerTurn = this._globalService.isPlayerTurn;
-  playerAttacking: boolean = false;
-  enemyAttacking: boolean = false;
+  weaponList = this._globalService.player.weaponPickedUp;
+  isPlayerTurn = true;
+  isDefending = false;
 
-  playerTurnCheck() {
-    if(this.playerTurn == true) {
-      return false
-    } else {
-      return true
-    }
-  }
+  switchTurn() {
+    this.isPlayerTurn = !this.isPlayerTurn;
 
-  attackEnemy() {
-    
-    this.enemyAttacking = false;
-    
-    if(this.playerTurn == true) {
-      this.currentEnemy.currentHealth -= this.player.damage;
-    }
-
-    
-
-    if(this.currentEnemy.currentHealth <= 0) {
-      this._globalService.player.currentHealth = 100;
-      this._globalService.isInCombat = false;
-      this.audioCombatChasseur.pause();
-      this.audioCombatChasseresse.pause();
-      if(this.currentEnemy.id == 1) {
-        this._globalService.isGunPickedUp = true;
-        this._globalService.isCombatTraitor = false;
-      }
-      if(this.currentEnemy.id == 2) {
-        this._globalService.isCombatFriendly = false;
-      }
-      if(this.currentEnemy.id == 3) {
-        this._globalService.isCombatBeast = false;
-        this._globalService.player.positionX = 700;
-        this._globalService.player.positionY = 700;
-      }
-      if(this.currentEnemy.id == 4) {
-        this._globalService.isCombatMinion21 = false;
-      }
-      if(this.currentEnemy.id == 5) {
-        this._globalService.isCombatMinion34 = false;
-      }
-
-    }
-    this.playerAttacking = true;
-
-    this.playerTurn = false;
-    this.timeoutDegat();
-    if (this._globalService.currentEnemy.currentHealth > 0)
-    {
-      this.timeOutCombat();
-    }
-  }
-
-  timeoutDegat() {
-    setTimeout(() => {
-      this.changeAttack();
-    }, 250)
-  }
-
-  changeAttack() {
-    this.playerAttacking = false;
-  }
-
-  timeOutCombat() {
-    if(this.playerTurn == false) {
+    if(!this.isPlayerTurn) {
       setTimeout(() => {
         this.enemyAttack();
       }, 750);
     }
   }
 
-  enemyAttack() {
-    if(this.currentEnemy.currentHealth <= 50 && this._globalService.isTraitorHelping === true && this.currentEnemy.id === 3) {
-      this._globalService.isCombatBeast = false;
-      this._globalService.isInCombat = false;
-      this._globalService.player.positionX = 500;
-      this._globalService.player.positionY = 500;
-      alert("Jhon vous a trahi")
-      this._globalService.finalQuote = "Aucune chance que je sépare la prime, gamin!"
-    }
-    this.playerAttacking = false;
-    
-    if(this.playerTurn == false) {
-      if(this._globalService.isPlayerDefending == true) {
-        this.player.currentHealth -= (this.currentEnemy.damage / 2)
-        this._globalService.isPlayerDefending = false;
-      } else {
-        this.player.currentHealth -= this.currentEnemy.damage
+  whichEnemy() {
+    switch(this.currentEnemy.id) {
+      case 1 : {
+        this._globalService.currentEnemy.finalQuote = "Vous avez été tué par le chasseur. En regardant votre cadavre atteindre le sol il vous lance :  Un peu trop ambitieux pour un gamin.";
+        this._globalService.isGunPickedUp = true;
+        this._globalService.isCombatTraitor = false;
       }
+      break;
+      case 2 : {
+        this._globalService.isCombatFriendly = false;
+      }
+      break;
+      case 3 : {
+        this._globalService.isCombatBeast = false;
+        this._globalService.player.positionX = 700;
+        this._globalService.player.positionY = 700;
+      }
+      break;
+      case 4 : {
+        this._globalService.isCombatMinion21 = false;
+      }
+      break;
+      case 5 : {
+        this._globalService.isCombatMinion34 = false;
+      }
+      break;
+    }
+  }
+
+  attackEnemy() {
+    if(this.isPlayerTurn) {
+      this.currentEnemy.currentHealth -= this.player.damage
     }
 
-    if(this.currentEnemy.id === 1) {
-      this.audioShotGun.play();
+    if(this.currentEnemy.currentHealth <= 0) {
+      this.leaveCombat();
+      this.audioCombatChasseur.pause();
+      this.audioCombatChasseresse.pause();
+      this.whichEnemy();
     }
 
-    this.enemyAttacking = true;
+    this.switchTurn();
+  }
 
+  enemyAttack() {
+    if(this.isDefending == true) {
+      this.player.currentHealth -= (this.currentEnemy.damage / 2)
+      this.isDefending = false;
+    } else {
+      this.player.currentHealth -= this.currentEnemy.damage
+    }
+    
     if(this.player.currentHealth <= 0) {
-      this.player.mort = true;
+      this.player.dead = true;
       this._globalService.isInCombat = false;
       this.audioCombatChasseur.pause();
       this.audioCombatChasseresse.pause();
       this.audioCombatBoss.pause();
-
-
-
-      if(this.currentEnemy.id == 1) {
-        this._globalService.finalQuote = "Vous avez été tué par le chasseur. En regardant votre cadavre atteindre le sol il vous lance :  Un peu trop ambitieux pour un gamin."
-      }
-      if(this.currentEnemy.id == 2) {
-        this._globalService.finalQuote = "La chasseresse à mis fin à vos jours. Si seulement vous aviez pu faire équipe avec elle. "
-      }
-      if(this.currentEnemy.id == 3 && !this._globalService.isTraitorHelping === true) {
-        this._globalService.finalQuote = "La grande bête de Hamshire vous a terrassée. Qui pourra mettre fin à la nuit éternelle ?  Peut-être qu'une meilleure arme ou l'aide de quelqu'un aurait pu vous aider"
-      }
-      if(this.currentEnemy.id == 3 && this._globalService.isTraitorHelping === true) {
-        this._globalService.finalQuote = "Vous avez été tué par le chasseur. En regardant votre cadavre atteindre le sol il vous lance :  Un peu trop ambitieux pour un gamin."
-      }
-      if(this.currentEnemy.id == 4) {
-        this._globalService.finalQuote = "Vous avez été tué par un monstre de la forêt, quelle malchance."
-      }
-      if(this.currentEnemy.id == 5) {
-        this._globalService.finalQuote = "Vous avez été tué par un monstre de la forêt, quelle malchance."
-      }
-
-
     }
-    if(this.player.mort === true) {
+    if(this.player.dead === true) {
       this.player.positionX = 500;
       this.player.positionY = 500;
     }
 
-    this.playerTurn = true;
-
     setTimeout(() => {
-      this.changeEnemyAttack();
-    }, 750)
-  }
-
-  changeEnemyAttack() {
-    this.enemyAttacking = false;
-  }
-
-  defense() {
-    this._globalService.isPlayerDefending = true;
-
-    this.playerTurn = false;
-    if(this.playerTurn == false) {
-      this.timeOutCombat();
-    }
+      this.switchTurn();
+    }, 500)
   }
 
   switchWeapon() {
-    this._globalService.player.damage = this.weaponList[this.weaponIndex].damage;
-    alert("Vous venez d'équiper " + this.weaponList[this.weaponIndex].name);
-    this.weaponIndex++;
-    if(this.weaponIndex === 3) {
-      this.weaponIndex = 0;
+    this._globalService.currentWeaponIndex++;
+
+    if(this._globalService.currentWeaponIndex === this.weaponList.length) {
+      this._globalService.currentWeaponIndex = 0;
     }
+
+    if(this.weaponList.length === 1) {
+      alert("Vous n'avez pas d'autre arme à équiper")
+    } else {
+      alert("Vous venez d'équiper " + this.weaponList[this._globalService.currentWeaponIndex].name);
+      this._globalService.player.damage = this.weaponList[this._globalService.currentWeaponIndex].damage;
+    }
+  }
+
+  defend() {
+    this.isDefending = true;
+
+    setTimeout(() => {
+      this.switchTurn();
+    }, 250)
   }
 
   leaveCombat() {
     this._globalService.isInCombat = false;
+    this._globalService.currentEnemy.currentHealth = this._globalService.currentEnemy.maxHealth;
+    this.whichEnemy();
   }
 }

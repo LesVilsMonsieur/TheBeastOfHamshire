@@ -24,39 +24,7 @@ export class GlobalService {
     isCrowbarPickedUp = false;
     isLadderPickedUp = false;
     isKeyPickedUp = false;
-
-    //Hunters
-    hunter1 : Enemy = {
-        id : 1,
-        name : 'Jhon',
-        currentHealth : 200,
-        maxHealth : 200,
-        damage : 10,
-        combatImageUrl : '/assets/Chasseurcombat.png',
-        dialogImageUrl : '/assets/Chasseurguillaume2.png',
-        combatImageSangUrl : '/assets/ChasseurcombatSANGOVERFIXXXXX.png'
-    }
-
-    hunter2 : Enemy = {
-        id : 2,
-        name : 'Louise',
-        currentHealth : 100,
-        maxHealth : 100,
-        damage : 10,
-        combatImageUrl : '/assets/Chaseressecombat.png',
-        dialogImageUrl : '/assets/Chasseresseguillaume2.png',
-        combatImageSangUrl : '/assets/ChaseressecombatSANGOVER.png'
-    }
-
-    //Player
-    player : Player = {
-        currentHealth : 100,
-        maxHealth : 100,
-        damage : 9,
-        positionX : 300,
-        positionY : 300,
-        mort : false
-    }
+    currentWeaponIndex = 0;
 
     //Weapons
     empty : Weapon = {
@@ -72,11 +40,48 @@ export class GlobalService {
         damage : 50
     }
 
-    weaponList : Weapon[] = [
-        this.empty,
-        this.axe,
-        this.gun
-    ]
+    //Player
+    player : Player = {
+        currentHealth : 100,
+        maxHealth : 100,
+        damage : 9,
+        positionX : 300,
+        positionY : 300,
+        dead : false,
+        weaponPickedUp : [
+           this.empty
+        ]
+    }
+
+    
+
+    //Ennemies
+    //Hunters
+    hunter1 : Enemy = {
+        id : 1,
+        name : 'Jhon',
+        currentHealth : 200,
+        maxHealth : 200,
+        damage : 10,
+        combatImageUrl : '/assets/Chasseurcombat.png',
+        dialogImageUrl : '/assets/Chasseurguillaume2.png',
+        combatImageSangUrl : '/assets/ChasseurcombatSANGOVERFIXXXXX.png',
+        isDefeated : false,
+        finalQuote : "Vous avez été tué par le chasseur. En regardant votre cadavre atteindre le sol il vous lance :  Un peu trop ambitieux pour un gamin." 
+    }
+
+    hunter2 : Enemy = {
+        id : 2,
+        name : 'Louise',
+        currentHealth : 100,
+        maxHealth : 100,
+        damage : 10,
+        combatImageUrl : '/assets/Chaseressecombat.png',
+        dialogImageUrl : '/assets/Chasseresseguillaume2.png',
+        combatImageSangUrl : '/assets/ChaseressecombatSANGOVER.png',
+        isDefeated : false,
+        finalQuote : "La chasseresse à mis fin à vos jours. Si seulement vous aviez pu faire équipe avec elle."
+    }
 
     // Great Beast
     greatBeast : Enemy = {
@@ -87,9 +92,10 @@ export class GlobalService {
         damage : 20,
         combatImageUrl : '/assets/Monstre.png',
         dialogImageUrl : '',
-        combatImageSangUrl : '/assets/MonstreSANGOVER.png'
+        combatImageSangUrl : '/assets/MonstreSANGOVER.png',
+        isDefeated : false,
+        finalQuote : "La grande bête de Hamshire vous a terrassée. Qui pourra mettre fin à la nuit éternelle ?  Peut-être qu'une meilleure arme ou l'aide de quelqu'un aurait pu vous aider"
     }
-
 
     // Minion21
     minion21 : Enemy = {
@@ -100,9 +106,10 @@ export class GlobalService {
         damage : 10,
         combatImageUrl : '/assets/Chien.png',
         dialogImageUrl : '',
-        combatImageSangUrl : '/assets/ChienSang.png'
+        combatImageSangUrl : '/assets/ChienSang.png',
+        isDefeated : false,
+        finalQuote : "Vous avez été tué par un monstre de la forêt, quelle malchance."
     }
-
 
     // Minion34
     minion34 : Enemy = {
@@ -113,10 +120,10 @@ export class GlobalService {
         damage : 10,
         combatImageUrl : '/assets/Chien.png',
         dialogImageUrl : '',
-        combatImageSangUrl : '/assets/ChienSang.png'
+        combatImageSangUrl : '/assets/ChienSang.png',
+        isDefeated : false,
+        finalQuote : "Vous avez été tué par un monstre de la forêt, quelle malchance."
     }
-
-    isInDialog : boolean = false;
 
     /// Battle
     currentEnemy : Enemy = this.hunter1;
@@ -131,19 +138,12 @@ export class GlobalService {
 
 
     //Dialog
+    isInDialog : boolean = false;
+
     isReadingWanted : boolean = false;
     isReadingSister : boolean = false;
     isWantedPageRead : boolean = false;
     isSisterPageRead : boolean = false;
     isTraitorHelping : boolean = false;
     isFriendlyHelping : boolean = false;
-
-
-
-
-
-
-    // Death final quote
-
-    finalQuote = "";
 }
