@@ -18,15 +18,9 @@ export class GlobalService {
     isCombatMinion21 = true;
     isCombatMinion34 = true;
 
-
-    isGunPickedUp = false;
-    isAxePickedUp = false;
-    isCrowbarPickedUp = false;
-    isLadderPickedUp = false;
-    isKeyPickedUp = false;
+    //Weapons
     currentWeaponIndex = 0;
 
-    //Weapons
     empty : Weapon = {
         name : 'rien',
         damage : 10
@@ -128,7 +122,6 @@ export class GlobalService {
     selectedWeapon : Weapon = this.axe;
     isInCombat: boolean = false;
     isPlayerTurn: boolean = true;
-    isPlayerDefending: boolean = false;
 
     superAttack: boolean = false;
     deathTraitor: boolean = true;
