@@ -38,6 +38,7 @@ import { GameoverComponent } from './gameover/gameover.component';
 import { VictoireComponent } from './victoire/victoire.component';
 import { WantedPageComponent } from './wanted-page/wanted-page.component';
 import { SisterPageComponent } from './sister-page/sister-page.component';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
@@ -75,14 +76,15 @@ import { SisterPageComponent } from './sister-page/sister-page.component';
     GameoverComponent,
     VictoireComponent,
     WantedPageComponent,
-    SisterPageComponent
+    SisterPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MapComponent,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

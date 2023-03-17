@@ -1,0 +1,33 @@
+:host {
+  display: block;
+  height: 100%;
+  background-size: cover;
+}
+
+button {
+  position: absolute;
+}
+
+.top {
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.left {
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.right {
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.bottom {
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+}

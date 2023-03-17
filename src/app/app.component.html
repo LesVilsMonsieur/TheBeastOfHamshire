@@ -1,4 +1,13 @@
-<app-intro *ngIf="this.globalService.player.positionX === 300 && this.globalService.player.positionY === 300"></app-intro>
+<button *ngIf="!gameStarted" (click)="gameStarted = true">
+  Commencer la partie
+</button>
+
+<app-map
+  *ngIf="gameStarted"
+  [properties]="(currentMap$ | async)!"
+  (positionChanged)="changePosition($event)"
+></app-map>
+<!-- <app-intro *ngIf="this.globalService.player.positionX === 300 && this.globalService.player.positionY === 300"></app-intro>
 
 <app-accueil *ngIf="this.globalService.player.positionX === 200 && this.globalService.player.positionY === 200" ></app-accueil>
 
@@ -38,4 +47,4 @@
 <app-wanted-page *ngIf="this.globalService.isReadingWanted === true" @FadeIn @FadeOut></app-wanted-page>
 
 <app-gameover *ngIf="this.globalService.player.positionX === 500 && this.globalService.player.positionY === 500 && this.globalService.isInCombat === false && this.globalService.isInDialog === false" @FadeIn @FadeOut></app-gameover>
-<app-victoire *ngIf="this.globalService.player.positionX === 700 && this.globalService.player.positionY === 700 && this.globalService.isInCombat === false && this.globalService.isInDialog === false" @FadeIn @FadeOut></app-victoire>
+<app-victoire *ngIf="this.globalService.player.positionX === 700 && this.globalService.player.positionY === 700 && this.globalService.isInCombat === false && this.globalService.isInDialog === false" @FadeIn @FadeOut></app-victoire> -->
