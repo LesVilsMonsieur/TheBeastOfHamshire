@@ -53,8 +53,6 @@ export class GlobalService {
         ]
     }
 
-    
-
     //Ennemies
     //Hunters
     hunter1 : Enemy = {

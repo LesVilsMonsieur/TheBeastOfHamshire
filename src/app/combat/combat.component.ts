@@ -66,8 +66,11 @@ export class CombatComponent implements OnInit {
     switch(this.currentEnemy.id) {
       case 1 : {
         this._globalService.currentEnemy.finalQuote = "Vous avez été tué par le chasseur. En regardant votre cadavre atteindre le sol il vous lance :  Un peu trop ambitieux pour un gamin.";
-        this._globalService.isGunPickedUp = true;
+        this._globalService.player.weaponPickedUp.push(this._globalService.gun);
         this._globalService.isCombatTraitor = false;
+        setTimeout(() => {
+          alert("Vous venez de récuperer le fusil de Jhon");
+        }, 750);
       }
       break;
       case 2 : {
@@ -100,7 +103,6 @@ export class CombatComponent implements OnInit {
       this.leaveCombat();
       this.audioCombatChasseur.pause();
       this.audioCombatChasseresse.pause();
-      this.whichEnemy();
     }
 
     this.switchTurn();
