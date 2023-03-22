@@ -59,7 +59,7 @@ export class GlobalService {
         dialogImageUrl : '/assets/Chasseurguillaume2.png',
         combatImageSangUrl : '/assets/ChasseurcombatSANGOVERFIXXXXX.png',
         isDefeated : false,
-        finalQuote : "Vous avez été tué par le chasseur. En regardant votre cadavre atteindre le sol il vous lance :  Un peu trop ambitieux pour un gamin." 
+        finalQuote : "Vous avez été tué par le chasseur. En regardant votre cadavre atteindre le sol il vous lance :  Un peu trop ambitieux pour un gamin."
     }
 
     hunter2 : Enemy = {

@@ -31,14 +31,9 @@ export class GameoverComponent implements OnInit {
     this.globalService.greatBeast.currentHealth = 100;
     this.globalService.hunter1.currentHealth = 200;
     this.globalService.hunter2.currentHealth = 100;
-    this.globalService.isAxePickedUp = false;
-    this.globalService.isCrowbarPickedUp = false;
     this.globalService.isFriendlyHelping = false;
-    this.globalService.isGunPickedUp = false;
     this.globalService.isInCombat = false;
     this.globalService.isInDialog = false;
-    this.globalService.isKeyPickedUp = false;
-    this.globalService.isPlayerDefending = false;
     this.globalService.isPlayerTurn = false;
     this.globalService.isSisterPageRead = false;
     this.globalService.isTraitorHelping = false;

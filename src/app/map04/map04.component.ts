@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { AudioService } from '../audio.service';
 import { GlobalService } from '../global.service';
 
 @Component({
@@ -9,24 +10,29 @@ import { GlobalService } from '../global.service';
 export class Map04Component implements OnInit {
   constructor(private globalService: GlobalService){}
 
-  audio04 = new Audio();
+  audio = inject(AudioService);
+
+  //audio04 = new Audio();
   audioPas1 = new Audio();
   audioPas2 = new Audio();
 
   ngOnInit(): void {
-    this.audio04.src = "../assets/Music_Exploration.wav";
+   // this.audio04.src = "../assets/Music_Exploration.wav";
     this.audioPas1.src = "../assets/SFX_FootstepsDirt1.wav";
     this.audioPas2.src = "../assets/SFX_FootstepsLeaves2.wav";
     this.audioPas1.load();
     this.audioPas2.load();
-    this.audio04.load();
-    this.audio04.play();
+    //this.audio04.load();
+    //this.audio04.play();
+
+    this.audio.play('music-exploration');
+
   }
 
   goToMap14() {
     this.globalService.player.positionX = 1;
     this.globalService.player.positionY = 4;
-    this.audio04.pause();
+    //this.audio04.pause();
     this.audioPas1.play();
     this.audioPas2.play();
   }
@@ -34,7 +40,7 @@ export class Map04Component implements OnInit {
   goToMap03() {
     this.globalService.player.positionX = 0;
     this.globalService.player.positionY = 3;
-    this.audio04.pause();
+    //this.audio04.pause();
     this.audioPas2.play();
     this.audioPas1.play();
   }
