@@ -13,17 +13,7 @@ export class GameoverComponent implements OnInit {
 
   audio = inject(AudioService);
 
-  //audioFin = new Audio();
-  //audioMort = new Audio();
-
   ngOnInit(): void {
-    /*this.audioFin.src = "../assets/Music_Fin.wav";
-    this.audioMort.src = "../assets/Stinger_Mort.wav";
-    this.audioMort.load();
-    this.audioMort.play();
-    this.audioFin.load();
-    this.audioFin.play();*/
-    //this.audio.play('music-fin');
     this.audio.play('stinger-mort');
   }
 
@@ -44,8 +34,6 @@ export class GameoverComponent implements OnInit {
     this.globalService.isTraitorHelping = false;
     this.globalService.isWantedPageRead = false;
 
-    //this.audioFin.pause();
-    //this.audio.pause('music-fin');
     this.audio.pause('stinger-mort');
   }
 }

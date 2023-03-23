@@ -12,29 +12,13 @@ export class Map43Component implements OnInit {
 
   audio = inject(AudioService);
 
-  //audio43 = new Audio();
-  //audioPas1 = new Audio();
-  //audioPas2 = new Audio();
-
   ngOnInit(): void {
-   // this.audio43.src = "../assets/Music_Exploration.wav";
-    /*this.audioPas1.src = "../assets/SFX_FootstepsDirt1.wav";
-    this.audioPas2.src = "../assets/SFX_FootstepsLeaves2.wav";
-    this.audioPas1.load();
-    this.audioPas2.load();*/
-    //this.audio43.load();
-    //this.audio43.play();
-
     this.audio.play('music-exploration');
-
   }
 
   goToMap42() {
     this.globalService.player.positionX = 4;
     this.globalService.player.positionY = 2;
-    //this.audio43.pause();
-    //this.audioPas2.play();
-    //this.audioPas1.play();
     this.audio.footsteps();
 
   }
@@ -42,18 +26,12 @@ export class Map43Component implements OnInit {
   goToMap44() {
     this.globalService.player.positionX = 4;
     this.globalService.player.positionY = 4;
-    //this.audio43.pause();
-    //this.audioPas1.play();
-    //this.audioPas2.play();
     this.audio.footsteps();
 
   }
   goToMap33() {
     this.globalService.player.positionX = 3;
     this.globalService.player.positionY = 3;
-   // this.audio43.pause();
-    //this.audioPas2.play();
-    //this.audioPas1.play();
     this.audio.footsteps();
 
   }

@@ -13,40 +13,17 @@ export class CombatComponent implements OnInit {
 
   audio = inject(AudioService);
 
-  //audioCombatChasseur = new Audio();
-  //audioCombatChasseresse = new Audio();
-  //audioShotGun = new Audio();
-  //audioCombatBoss = new Audio();
-  //audioCombatMinion = new Audio();
-  //audioCochon = new Audio();
-
   ngOnInit(): void {
     this._globalService.player.currentHealth = 100;
 
-    //this.audioCombatChasseur.src = "../assets/Music_Combat_Chasseur.wav";
-    //this.audioCombatChasseresse.src = "../assets/Music_Combat_ChasseurFeminin.wav";
-    //this.audioShotGun.src = "../assets/SFX_Shotgun.wav";
-    //this.audioCombatBoss.src = "../assets/Music_Combat_BossFinal.wav";
-    //this.audioCochon.src = "../assets/SFX_Cochon2.wav";
-    //this.audioCochon.load();
-    //this.audioCombatBoss.load();
-    //this.audioShotGun.load();
-    //this.audioCombatChasseur.load();
-    //this.audioCombatChasseresse.load();
-
     if(this.currentEnemy.id === 1){
-      //this.audioCombatChasseur.play();
       this.audio.play('music-combat-hunter1');
     } else if(this.currentEnemy.id === 2){
-      //this.audioCombatChasseresse.play();
       this.audio.play('music-combat-hunter2');
     } else if(this.currentEnemy.id === 4 || this.currentEnemy.id === 5) {
-      //this.audioCombatChasseresse.play();
       this.audio.play('music-combat-hunter2');
     } else if(this.currentEnemy.id === 3) {
-      //this.audioCochon.play();
       this.audio.play('sfx-cochon');
-      //this.audioCombatBoss.play();
       this.audio.play('music-combat-boss');
     }
     if(this._globalService.isFriendlyHelping === true || this._globalService.isTraitorHelping === true){
@@ -110,9 +87,7 @@ export class CombatComponent implements OnInit {
 
     if(this.currentEnemy.currentHealth <= 0) {
       this.leaveCombat();
-      //this.audioCombatChasseur.pause();
       this.audio.pause('music-combat-hunter1');
-      //this.audioCombatChasseresse.pause();
       this.audio.pause('music-combat-hunter2');
       this.audio.pause('music-combat-boss');
     }
@@ -132,11 +107,8 @@ export class CombatComponent implements OnInit {
     }
 
     if(this.player.currentHealth <= 0) {
-      //this.audioCombatChasseur.pause();
       this.audio.pause('music-combat-hunter1');
-      //this.audioCombatChasseresse.pause();
       this.audio.pause('music-combat-hunter2');
-      //this.audioCombatBoss.pause();
       this.audio.pause('music-combat-boss');
       this.player.dead = true;
       this._globalService.isInCombat = false;

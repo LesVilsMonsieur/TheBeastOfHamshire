@@ -11,13 +11,7 @@ export class VictoireComponent implements OnInit {
   audio = inject(AudioService);
 
   ngOnInit(): void {
-    /*this.audioFin.src = "/assets/Music_Fin.wav";
-    this.audioFin.load();
-    this.audioFin.play();*/
     this.audio.play('music-fin');
   }
-
-  //audioFin = new Audio();
-
 
 }
