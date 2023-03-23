@@ -12,7 +12,7 @@ export class AudioService {
     'music-combat-hunter1': new Audio('../assets/Music_Combat_Chasseur.wav'),
     'music-combat-hunter2': new Audio('../assets/Music_Combat_ChasseurFeminin.wav'),
     'music-combat-boss': new Audio('../assets/Music_Combat_BossFinal.wav'),
-    'music-intro': new Audio('../assets/Ouverture-Intro_90bpm_4-4_L25m_P0b.wav'),
+    'music-menu': new Audio('../assets/Music_OuvertureMenu.wav'),
     'music-fin': new Audio('../assets/Music_Fin.wav'),
     'sfx-footsteps-dirt': new Audio('../assets/SFX_FootstepsDirt1.wav'),
     'sfx-footsteps-leaves': new Audio('../assets/SFX_FootstepsLeaves2.wav'),
@@ -32,6 +32,12 @@ export class AudioService {
 
   pause(sound: keyof typeof this.audioMap) {
     this.audioMap[sound].pause();
+  }
+
+  footsteps() {
+    this.audioMap['sfx-footsteps-dirt'].play();
+    this.audioMap['sfx-footsteps-leaves'].play();
+
   }
 
 }

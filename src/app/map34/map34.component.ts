@@ -13,15 +13,15 @@ export class Map34Component implements OnInit {
   audio = inject(AudioService);
 
   //audio34 = new Audio();
-  audioPas1 = new Audio();
-  audioPas2 = new Audio();
+  //audioPas1 = new Audio();
+  //audioPas2 = new Audio();
 
   ngOnInit(): void {
     //this.audio34.src = "../assets/Music_Exploration.wav";
-    this.audioPas1.src = "../assets/SFX_FootstepsDirt1.wav";
+    /*this.audioPas1.src = "../assets/SFX_FootstepsDirt1.wav";
     this.audioPas2.src = "../assets/SFX_FootstepsLeaves2.wav";
     this.audioPas1.load();
-    this.audioPas2.load();
+    this.audioPas2.load();*/
     //this.audio34.load();
    // this.audio34.play();
 
@@ -33,21 +33,26 @@ export class Map34Component implements OnInit {
     this.globalService.player.positionX = 3;
     this.globalService.player.positionY = 3;
   //  this.audio34.pause();
-    this.audioPas2.play();
-    this.audioPas1.play();
+    //this.audioPas2.play();
+    //this.audioPas1.play();
+    this.audio.footsteps();
+
   }
 
   goToMap44() {
     this.globalService.player.positionX = 4;
     this.globalService.player.positionY = 4;
    // this.audio34.pause();
-    this.audioPas1.play();
-    this.audioPas2.play();
+    //this.audioPas1.play();
+    //this.audioPas2.play();
+    this.audio.footsteps();
+
   }
 
   combatChien() {
     this.globalService.currentEnemy = this.globalService.minion34;
     this.globalService.isInCombat = true;
   //  this.audio34.pause();
+    this.audio.pause('music-exploration');
   }
 }

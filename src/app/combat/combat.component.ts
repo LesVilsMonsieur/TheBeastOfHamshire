@@ -1,4 +1,5 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { AudioService } from '../audio.service';
 import { GlobalService } from '../global.service';
 
 @Component({
@@ -10,36 +11,43 @@ export class CombatComponent implements OnInit {
 
   constructor(public _globalService : GlobalService) {}
 
-  audioCombatChasseur = new Audio();
-  audioCombatChasseresse = new Audio();
-  audioShotGun = new Audio();
-  audioCombatBoss = new Audio();
+  audio = inject(AudioService);
+
+  //audioCombatChasseur = new Audio();
+  //audioCombatChasseresse = new Audio();
+  //audioShotGun = new Audio();
+  //audioCombatBoss = new Audio();
   //audioCombatMinion = new Audio();
-  audioCochon = new Audio();
+  //audioCochon = new Audio();
 
   ngOnInit(): void {
     this._globalService.player.currentHealth = 100;
 
-    this.audioCombatChasseur.src = "../assets/Music_Combat_Chasseur.wav";
-    this.audioCombatChasseresse.src = "../assets/Music_Combat_ChasseurFeminin.wav";
-    this.audioShotGun.src = "../assets/SFX_Shotgun.wav";
-    this.audioCombatBoss.src = "../assets/Music_Combat_BossFinal.wav";
-    this.audioCochon.src = "../assets/SFX_Cochon2.wav";
-    this.audioCochon.load();
-    this.audioCombatBoss.load();
-    this.audioShotGun.load();
-    this.audioCombatChasseur.load();
-    this.audioCombatChasseresse.load();
+    //this.audioCombatChasseur.src = "../assets/Music_Combat_Chasseur.wav";
+    //this.audioCombatChasseresse.src = "../assets/Music_Combat_ChasseurFeminin.wav";
+    //this.audioShotGun.src = "../assets/SFX_Shotgun.wav";
+    //this.audioCombatBoss.src = "../assets/Music_Combat_BossFinal.wav";
+    //this.audioCochon.src = "../assets/SFX_Cochon2.wav";
+    //this.audioCochon.load();
+    //this.audioCombatBoss.load();
+    //this.audioShotGun.load();
+    //this.audioCombatChasseur.load();
+    //this.audioCombatChasseresse.load();
 
     if(this.currentEnemy.id === 1){
-      this.audioCombatChasseur.play();
+      //this.audioCombatChasseur.play();
+      this.audio.play('music-combat-hunter1');
     } else if(this.currentEnemy.id === 2){
-      this.audioCombatChasseresse.play();
+      //this.audioCombatChasseresse.play();
+      this.audio.play('music-combat-hunter2');
     } else if(this.currentEnemy.id === 4 || this.currentEnemy.id === 5) {
-      this.audioCombatChasseresse.play();
+      //this.audioCombatChasseresse.play();
+      this.audio.play('music-combat-hunter2');
     } else if(this.currentEnemy.id === 3) {
-      this.audioCochon.play();
-      this.audioCombatBoss.play();
+      //this.audioCochon.play();
+      this.audio.play('sfx-cochon');
+      //this.audioCombatBoss.play();
+      this.audio.play('music-combat-boss');
     }
     if(this._globalService.isFriendlyHelping === true || this._globalService.isTraitorHelping === true){
       this.player.damage *= 2;
@@ -78,6 +86,7 @@ export class CombatComponent implements OnInit {
       }
       break;
       case 3 : {
+        this.audio.pause('music-combat-boss');
         this._globalService.isCombatBeast = false;
         this._globalService.player.positionX = 700;
         this._globalService.player.positionY = 700;
@@ -101,27 +110,36 @@ export class CombatComponent implements OnInit {
 
     if(this.currentEnemy.currentHealth <= 0) {
       this.leaveCombat();
-      this.audioCombatChasseur.pause();
-      this.audioCombatChasseresse.pause();
+      //this.audioCombatChasseur.pause();
+      this.audio.pause('music-combat-hunter1');
+      //this.audioCombatChasseresse.pause();
+      this.audio.pause('music-combat-hunter2');
+      this.audio.pause('music-combat-boss');
     }
 
     this.switchTurn();
   }
 
   enemyAttack() {
+    if(this.currentEnemy.id === 1) {
+      this.audio.play('sfx-shotgun');
+    }
     if(this.isDefending == true) {
       this.player.currentHealth -= (this.currentEnemy.damage / 2)
       this.isDefending = false;
     } else {
       this.player.currentHealth -= this.currentEnemy.damage
     }
-    
+
     if(this.player.currentHealth <= 0) {
+      //this.audioCombatChasseur.pause();
+      this.audio.pause('music-combat-hunter1');
+      //this.audioCombatChasseresse.pause();
+      this.audio.pause('music-combat-hunter2');
+      //this.audioCombatBoss.pause();
+      this.audio.pause('music-combat-boss');
       this.player.dead = true;
       this._globalService.isInCombat = false;
-      this.audioCombatChasseur.pause();
-      this.audioCombatChasseresse.pause();
-      this.audioCombatBoss.pause();
     }
     if(this.player.dead === true) {
       this.player.positionX = 500;

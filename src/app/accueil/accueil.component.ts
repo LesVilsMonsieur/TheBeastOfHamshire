@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { AudioService } from '../audio.service';
 import { GlobalService } from '../global.service';
 
 @Component({
@@ -10,17 +11,20 @@ export class AccueilComponent implements OnInit {
 
   constructor(private globalService: GlobalService){}
 
-  readonly audioOuverture = new Audio("/assets/Music_OuvertureMenu.wav");
+  audio = inject(AudioService);
+
+  //readonly audioOuverture = new Audio("/assets/Music_OuvertureMenu.wav");
 
   ngOnInit(): void {
-    this.audioOuverture.load();
-    this.audioOuverture.play();
+    //this.audioOuverture.load();
+    //this.audioOuverture.play();
+    this.audio.play('music-menu');
   }
 
   goToMenu(){
     this.globalService.player.positionX = 100;
     this.globalService.player.positionY = 100;
-    this.audioOuverture.pause();
+    //this.audioOuverture.pause();
   }
 
 }
