@@ -21,11 +21,13 @@ export class GameoverComponent implements OnInit {
     this.globalService.player.positionX = 200;
     this.globalService.player.positionY = 200;
 
-    this.globalService.player.currentHealth = 100;
-    this.globalService.currentEnemy.id = 1;
-    this.globalService.greatBeast.currentHealth = 100;
-    this.globalService.hunter1.currentHealth = 200;
-    this.globalService.hunter2.currentHealth = 100;
+    this.globalService.player.currentHealth = this.globalService.player.maxHealth;
+    this.globalService.currentEnemy === this.globalService.hunter1;
+    this.globalService.greatBeast.currentHealth = this.globalService.greatBeast.maxHealth;
+    this.globalService.hunter1.currentHealth = this.globalService.hunter1.maxHealth;
+    this.globalService.hunter2.currentHealth = this.globalService.hunter2.maxHealth;
+    this.globalService.minion21.currentHealth = this.globalService.minion21.maxHealth;
+    this.globalService.minion34.maxHealth = this.globalService.minion34.maxHealth;
     this.globalService.isFriendlyHelping = false;
     this.globalService.isInCombat = false;
     this.globalService.isInDialog = false;

@@ -14,17 +14,18 @@ export class CombatComponent implements OnInit {
   audio = inject(AudioService);
 
   ngOnInit(): void {
-    this._globalService.player.currentHealth = 100;
-
+    this._globalService.player.currentHealth = this._globalService.player.maxHealth;
     if(this.currentEnemy.id === 1){
       this.audio.play('music-combat-hunter1');
     } else if(this.currentEnemy.id === 2){
       this.audio.play('music-combat-hunter2');
-    } else if(this.currentEnemy.id === 4 || this.currentEnemy.id === 5) {
+    } else if(this.currentEnemy.id === 4 || this._globalService.currentEnemy.id === 5) {
       this.audio.play('music-combat-hunter2');
     } else if(this.currentEnemy.id === 3) {
       this.audio.play('sfx-cochon');
-      this.audio.play('music-combat-boss');
+      setTimeout(() => {
+        this.audio.play('music-combat-boss');
+      }, 7000);
     }
     if(this._globalService.isFriendlyHelping === true || this._globalService.isTraitorHelping === true){
       this.player.damage *= 2;
@@ -50,6 +51,7 @@ export class CombatComponent implements OnInit {
   whichEnemy() {
     switch(this.currentEnemy.id) {
       case 1 : {
+        this.audio.pause('music-combat-hunter1');
         this._globalService.currentEnemy.finalQuote = "Vous avez été tué par le chasseur. En regardant votre cadavre atteindre le sol il vous lance :  Un peu trop ambitieux pour un gamin.";
         this._globalService.player.weaponPickedUp.push(this._globalService.gun);
         this._globalService.isCombatTraitor = false;
@@ -59,6 +61,7 @@ export class CombatComponent implements OnInit {
       }
       break;
       case 2 : {
+        this.audio.pause('music-combat-hunter2');
         this._globalService.isCombatFriendly = false;
       }
       break;
@@ -70,10 +73,12 @@ export class CombatComponent implements OnInit {
       }
       break;
       case 4 : {
+        this.audio.pause('music-combat-hunter2');
         this._globalService.isCombatMinion21 = false;
       }
       break;
       case 5 : {
+        this.audio.pause('music-combat-hunter2')
         this._globalService.isCombatMinion34 = false;
       }
       break;
