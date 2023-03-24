@@ -3,10 +3,10 @@ div {
     height: 98vh;
     background-image: url('/assets/3.png');
     background-size: 100% 100%;
-    border: 1px solid red;
+
   }
-  
-  
+
+
   .droite {
     position: absolute;
     top: 35%;
@@ -21,15 +21,15 @@ div {
     cursor: pointer;
     border-radius: 5px;
     text-align: center;
-  
+
     background-color: transparent;
       background-repeat: no-repeat;
-  
-  
+
+
       overflow: hidden;
       outline: none;
   }
-  
+
   .bas {
     height: 140px;
       width: 70px;
@@ -50,8 +50,7 @@ div {
       overflow: hidden;
       outline: none;
   }
-  
-  
-  
-  
-  
+
+
+
+

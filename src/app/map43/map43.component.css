@@ -3,10 +3,10 @@ div {
     height: 98vh;
     background-image: url('/assets/4.png');
     background-size: 100% 100%;
-    border: 1px solid red;
+
   }
-  
-  
+
+
   .gauche {
     position: absolute;
     top: 40%;
@@ -21,15 +21,15 @@ div {
     cursor: pointer;
     border-radius: 5px;
     text-align: center;
-  
+
     background-color: transparent;
       background-repeat: no-repeat;
-  
-  
+
+
       overflow: hidden;
       outline: none;
   }
-  
+
   .droite {
     position: absolute;
     top: 35%;
@@ -44,11 +44,11 @@ div {
     cursor: pointer;
     border-radius: 5px;
     text-align: center;
-  
+
     background-color: transparent;
       background-repeat: no-repeat;
-  
-  
+
+
       overflow: hidden;
       outline: none;
   }

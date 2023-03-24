@@ -3,7 +3,7 @@ div {
   height: 98vh;
   background-image: url('/assets/bg.png');
   background-size: 100% 100%;
-  border: 1px solid red;
+
 }
 
 .gauche {
