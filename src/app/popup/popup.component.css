@@ -1,0 +1,25 @@
+button {
+  float: right;
+  color: black;
+  border: blue;
+  border-radius: 6px;
+  background-color: lightblue;
+  padding: 30px;
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+/* .popup {
+
+  position: absolute;
+  top: 54%;
+  left: 72%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  border: none;
+  border-radius: 5px;
+} */
+

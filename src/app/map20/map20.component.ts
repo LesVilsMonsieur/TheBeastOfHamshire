@@ -1,6 +1,9 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { AudioService } from '../audio.service';
 import { GlobalService } from '../global.service';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { PopupComponent } from '../popup/popup.component';
+
 
 @Component({
   selector: 'app-map20',
@@ -9,7 +12,7 @@ import { GlobalService } from '../global.service';
 })
 export class Map20Component implements OnInit {
 
-  constructor(public globalService: GlobalService){}
+  constructor(public globalService: GlobalService, public dialog: MatDialog){}
 
   audio = inject(AudioService);
 
@@ -45,6 +48,11 @@ export class Map20Component implements OnInit {
 
   getHax() {
     this.globalService.player.weaponPickedUp.push(this.globalService.axe);
-    alert("Vous venez de récupérer une hache!")
+    this.dialog.open(PopupComponent, {
+      data: {
+        name: 'une hache',
+        damage: 25,
+      }
+    });
   }
 }

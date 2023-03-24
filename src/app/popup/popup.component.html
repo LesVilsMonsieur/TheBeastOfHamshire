@@ -1,0 +1,12 @@
+<div class="popup">
+  <div mat-dialog-content>
+    <!-- Si damage !== 0 => Récupérer une arme -->
+    <p *ngIf="data.damage !== 0">Vous venez de récupérer <span>{{ this.data.name }}</span>!</p>
+
+    <!-- Si damage = 0 => Message perso (changement d'arme) -->
+    <p *ngIf="data.damage === 0"><span>{{ this.data.name }}</span>!</p>
+  </div>
+
+  <button mat-dialog-actions [mat-dialog-close]="false">Ok</button>
+</div>
+

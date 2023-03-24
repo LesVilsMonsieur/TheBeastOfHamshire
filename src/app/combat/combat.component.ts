@@ -1,6 +1,8 @@
 import { Component, OnInit, inject } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { AudioService } from '../audio.service';
 import { GlobalService } from '../global.service';
+import { PopupComponent } from '../popup/popup.component';
 
 @Component({
   selector: 'app-combat',
@@ -9,7 +11,7 @@ import { GlobalService } from '../global.service';
 })
 export class CombatComponent implements OnInit {
 
-  constructor(public _globalService : GlobalService) {}
+  constructor(public _globalService : GlobalService, public dialog: MatDialog) {}
 
   audio = inject(AudioService);
 
@@ -56,7 +58,12 @@ export class CombatComponent implements OnInit {
         this._globalService.player.weaponPickedUp.push(this._globalService.gun);
         this._globalService.isCombatTraitor = false;
         setTimeout(() => {
-          alert("Vous venez de récuperer le fusil de Jhon");
+          this.dialog.open(PopupComponent, {
+            data: {
+              name: 'le fusil de Jhon',
+              damage: 50,
+            }
+          });
         }, 750);
       }
       break;
@@ -136,9 +143,19 @@ export class CombatComponent implements OnInit {
     }
 
     if(this.weaponList.length === 1) {
-      alert("Vous n'avez pas d'autre arme à équiper")
+      this.dialog.open(PopupComponent, {
+        data: {
+          name: "Vous n'avez pas d'autre arme à équiper",
+          damage: 0,
+        }
+      });
     } else {
-      alert("Vous venez d'équiper " + this.weaponList[this._globalService.currentWeaponIndex].name);
+      this.dialog.open(PopupComponent, {
+        data: {
+          name: "Vous venez d'équiper " + this.weaponList[this._globalService.currentWeaponIndex].name,
+          damage: 0,
+        }
+      });
       this._globalService.player.damage = this.weaponList[this._globalService.currentWeaponIndex].damage;
     }
   }
