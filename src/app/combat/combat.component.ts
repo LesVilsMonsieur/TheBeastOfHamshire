@@ -102,9 +102,11 @@ export class CombatComponent implements OnInit {
       this.audio.pause('music-combat-hunter1');
       this.audio.pause('music-combat-hunter2');
       this.audio.pause('music-combat-boss');
+    } else {
+      this.switchTurn();
     }
 
-    this.switchTurn();
+
   }
 
   enemyAttack() {
