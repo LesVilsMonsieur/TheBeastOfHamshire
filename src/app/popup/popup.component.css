@@ -1,18 +1,16 @@
 button {
   float: right;
-  color: black;
-  border: blue;
+  color: white;
+  border-color: blue;
   border-radius: 6px;
-  background-color: lightblue;
-  padding: 30px;
+  background-color: blue;
+  padding-right: 30px;
+  padding-left: 30px;
   cursor: pointer;
 }
 
-h1 {
-  font-size: 30px;
-}
-
-/* .popup {
+/*.popup {
+  border-color: red;
 
   position: absolute;
   top: 54%;
@@ -21,5 +19,5 @@ h1 {
   -ms-transform: translate(-50%, -50%);
   border: none;
   border-radius: 5px;
-} */
+}*/
 
