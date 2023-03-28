@@ -158,6 +158,9 @@ export class CombatComponent implements OnInit {
       });
       this._globalService.player.damage = this.weaponList[this._globalService.currentWeaponIndex].damage;
     }
+    if(this._globalService.isFriendlyHelping === true || this._globalService.isTraitorHelping === true){
+      this.player.damage *= 2;
+    }
   }
 
   defend() {
