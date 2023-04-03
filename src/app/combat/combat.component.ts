@@ -27,7 +27,7 @@ export class CombatComponent implements OnInit {
       this.audio.play('sfx-cochon');
       setTimeout(() => {
         this.audio.play('music-combat-boss');
-      }, 7000);
+      }, 5000);
     }
     if(this._globalService.isFriendlyHelping === true || this._globalService.isTraitorHelping === true){
       this.player.damage *= 2;
@@ -58,12 +58,13 @@ export class CombatComponent implements OnInit {
         this._globalService.player.weaponPickedUp.push(this._globalService.gun);
         this._globalService.isCombatTraitor = false;
         setTimeout(() => {
-          this.dialog.open(PopupComponent, {
-            data: {
-              name: 'le fusil de Jhon',
-              damage: 50,
-            }
-          });
+          alert("Vous venez de récupérer le fusil de Jhon");
+          // this.dialog.open(PopupComponent, {
+          //   data: {
+          //     name: 'le fusil de Jhon',
+          //     damage: 50,
+          //   }
+          // });
         }, 750);
       }
       break;
@@ -145,19 +146,21 @@ export class CombatComponent implements OnInit {
     }
 
     if(this.weaponList.length === 1) {
-      this.dialog.open(PopupComponent, {
-        data: {
-          name: "Vous n'avez pas d'autre arme à équiper",
-          damage: 0,
-        }
-      });
+      alert("Vous n'avez pas d'autre arme à équiper");
+      // this.dialog.open(PopupComponent, {
+      //   data: {
+      //     name: "Vous n'avez pas d'autre arme à équiper",
+      //     damage: 0,
+      //   }
+      // });
     } else {
-      this.dialog.open(PopupComponent, {
-        data: {
-          name: "Vous venez d'équiper " + this.weaponList[this._globalService.currentWeaponIndex].name,
-          damage: 0,
-        }
-      });
+      alert("Vous venez d'équiper " + this.weaponList[this._globalService.currentWeaponIndex].name)
+      // this.dialog.open(PopupComponent, {
+      //   data: {
+      //     name: "Vous venez d'équiper " + this.weaponList[this._globalService.currentWeaponIndex].name,
+      //     damage: 0,
+      //   }
+      // });
       this._globalService.player.damage = this.weaponList[this._globalService.currentWeaponIndex].damage;
     }
     if(this._globalService.isFriendlyHelping === true || this._globalService.isTraitorHelping === true){
