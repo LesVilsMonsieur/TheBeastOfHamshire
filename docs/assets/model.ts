@@ -7,6 +7,8 @@ export interface Enemy {
     combatImageUrl : string
     dialogImageUrl : string
     combatImageSangUrl : string
+    isDefeated : boolean
+    finalQuote : string
 }
 
 export interface Player {
@@ -15,7 +17,8 @@ export interface Player {
     damage : number
     positionX : number
     positionY : number
-    mort: boolean
+    dead: boolean
+    weaponPickedUp : Weapon[]
 }
 
 export interface Weapon {
