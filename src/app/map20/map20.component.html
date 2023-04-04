@@ -5,5 +5,5 @@
   <button tabindex="3" class="droit" (click)="goToMap21()">Tout droit</button>
   <button tabindex="4" class="droite" (click)="goToMap30()">Droite</button>
 
-  <button class="hache" (click)="getHax()">Dialog</button>
+  <button class="hache" [disabled]="this.globalService.hasPickedUpHax" (click)="getHax()">Dialog</button>
 </div>

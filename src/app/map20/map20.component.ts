@@ -48,6 +48,7 @@ export class Map20Component implements OnInit {
 
   getHax() {
     this.globalService.player.weaponPickedUp.push(this.globalService.axe);
+    this.globalService.hasPickedUpHax = true;
     alert("Vous venez de récupérer une hache");
     // this.dialog.open(PopupComponent, {
     //   data: {

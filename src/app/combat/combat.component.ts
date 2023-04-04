@@ -59,6 +59,7 @@ export class CombatComponent implements OnInit {
         this._globalService.isCombatTraitor = false;
         setTimeout(() => {
           alert("Vous venez de récupérer le fusil de Jhon");
+          this._globalService.currentEnemy.isDefeated = true;
           // this.dialog.open(PopupComponent, {
           //   data: {
           //     name: 'le fusil de Jhon',
@@ -71,22 +72,26 @@ export class CombatComponent implements OnInit {
       case 2 : {
         this.audio.pause('music-combat-hunter2');
         this._globalService.isCombatFriendly = false;
+        this._globalService.currentEnemy.isDefeated = true;
       }
       break;
       case 3 : {
         this.audio.pause('music-combat-boss');
         this._globalService.isCombatBeast = false;
+        this._globalService.currentEnemy.isDefeated = true;
         this._globalService.player.positionX = 700;
         this._globalService.player.positionY = 700;
       }
       break;
       case 4 : {
         this.audio.pause('music-combat-hunter2');
+        this._globalService.currentEnemy.isDefeated = true;
         this._globalService.isCombatMinion21 = false;
       }
       break;
       case 5 : {
         this.audio.pause('music-combat-hunter2')
+        this._globalService.currentEnemy.isDefeated = true;
         this._globalService.isCombatMinion34 = false;
       }
       break;

@@ -20,6 +20,7 @@ export class GlobalService {
 
     //Weapons
     currentWeaponIndex = 0;
+    hasPickedUpHax = false;
 
     empty : Weapon = {
         name : 'rien',

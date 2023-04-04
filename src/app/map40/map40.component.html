@@ -1,5 +1,5 @@
 <div class="container">
     <p>(4,0)</p>
     <button class="droit" (click)="goToMap41()" [disabled]="globalService.isCombatTraitor">Tout droit</button>
-    <button class="frangin" (click)="combatFrangin()" >Tout droit</button>
+    <button class="frangin" [disabled]="this.globalService.hunter1.isDefeated" (click)="combatFrangin()" >Tout droit</button>
 </div>

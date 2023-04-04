@@ -4,5 +4,5 @@
   <button class="droite" (click)="goToMap31()" [disabled]="globalService.isCombatMinion21">Droite</button>
   <button class="droit" (click)="goToMap22()" [disabled]="globalService.isCombatMinion21">Tout droit</button>
   <button class="bas" (click)="goToMap20()" [disabled]="globalService.isCombatMinion21">Bas</button>
-  <button class="chien" (click)="combatChien()" ></button>
+  <button class="chien" [disabled]="this.globalService.minion21.isDefeated" (click)="combatChien()" ></button>
 </div>

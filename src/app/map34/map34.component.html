@@ -3,6 +3,5 @@
     <button class="droite" (click)="goToMap44()" [disabled]="globalService.isCombatMinion34">Droite</button>
     <button class="bas" (click)="goToMap33()" [disabled]="globalService.isCombatMinion34">Bas</button>
 
-    <button class="chien" (click)="combatChien()" ></button>
-
+    <button class="chien" [disabled]="this.globalService.minion34.isDefeated" (click)="combatChien()" ></button>
 </div>

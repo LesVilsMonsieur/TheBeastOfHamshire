@@ -3,5 +3,5 @@
   <button class="droite" (click)="goToMap11()" [disabled]="globalService.isCombatFriendly">Droite</button>
   <button class="droit" (click)="goToMap02()" [disabled]="globalService.isCombatFriendly">Tout droit</button>
   <button class="bas" (click)="goToMap00()" [disabled]="globalService.isCombatFriendly">Bas</button>
-  <button class="frangine" (click)="combatFrangine()"></button>
+  <button class="frangine" [disabled]="this.globalService.hunter2.isDefeated" (click)="combatFrangine()"></button>
 </div>

@@ -35,6 +35,12 @@ export class GameoverComponent implements OnInit {
     this.globalService.isSisterPageRead = false;
     this.globalService.isTraitorHelping = false;
     this.globalService.isWantedPageRead = false;
+    this.globalService.hunter1.isDefeated = false;
+    this.globalService.hunter2.isDefeated = false;
+    this.globalService.minion21.isDefeated = false;
+    this.globalService.minion34.isDefeated = false;
+    this.globalService.greatBeast.isDefeated = false;
+    this.globalService.hasPickedUpHax = false;
 
     this.audio.pause('stinger-mort');
   }
