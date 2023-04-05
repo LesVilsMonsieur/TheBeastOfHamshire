@@ -38,8 +38,8 @@ import { GameoverComponent } from './gameover/gameover.component';
 import { VictoireComponent } from './victoire/victoire.component';
 import { WantedPageComponent } from './wanted-page/wanted-page.component';
 import { SisterPageComponent } from './sister-page/sister-page.component';
-import { PopupComponent } from './popup/popup.component';
-import { MatDialogModule } from '@angular/material/dialog';
+// import { PopupComponent } from './popup/popup.component';
+// import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -78,13 +78,13 @@ import { MatDialogModule } from '@angular/material/dialog';
     VictoireComponent,
     WantedPageComponent,
     SisterPageComponent,
-    PopupComponent
+    // PopupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    // MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

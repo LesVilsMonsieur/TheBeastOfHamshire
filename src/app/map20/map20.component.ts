@@ -1,8 +1,8 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { AudioService } from '../audio.service';
 import { GlobalService } from '../global.service';
-import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { PopupComponent } from '../popup/popup.component';
+// import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+// import { PopupComponent } from '../popup/popup.component';
 
 
 @Component({
@@ -12,7 +12,9 @@ import { PopupComponent } from '../popup/popup.component';
 })
 export class Map20Component implements OnInit {
 
-  constructor(public globalService: GlobalService, public dialog: MatDialog){}
+  constructor(public globalService: GlobalService){}
+
+  // public dialog: MatDialog
 
   audio = inject(AudioService);
 

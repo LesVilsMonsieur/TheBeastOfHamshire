@@ -1,8 +1,8 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+// import { MatDialog } from '@angular/material/dialog';
 import { AudioService } from '../audio.service';
 import { GlobalService } from '../global.service';
-import { PopupComponent } from '../popup/popup.component';
+// import { PopupComponent } from '../popup/popup.component';
 
 @Component({
   selector: 'app-combat',
@@ -11,8 +11,10 @@ import { PopupComponent } from '../popup/popup.component';
 })
 export class CombatComponent implements OnInit {
 
-  constructor(public _globalService : GlobalService, public dialog: MatDialog) {}
+  constructor(public _globalService : GlobalService) {}
 
+
+  // public dialog: MatDialog
   audio = inject(AudioService);
 
   ngOnInit(): void {
