@@ -1,0 +1,45 @@
+Texte sur le poster Wanted : "500 pounds pour la tête de la bête" 
+
+
+Combat monstre générique : "Un [Nom du monstre] vous attaque!"
+
+
+
+
+
+Chasseur traitre:
+
+
+Après t'avoir tué :  "Un autre apprenti pour le composte"
+Après avoir dit le mot clé : "Astucieux gamin... Je suis d'accord.  On divise la prime à part égal.  On se rejoint sur le champ de bataille"
+Si déja team avec Friendly : "Séparé la prime en trois part ? Quelle idiotie gamin!"
+Post traison : "Ah bien y penser, je préfère mon partage initial.  500 pounds pour moi et rien pour vous.  Pas très asticieux gamin." 
+
+
+
+
+Chasseur friendly:
+
+Après t'avoir tué : "C'est regrettable, mais personne ne m'empêchera d'obtenir ma vengance"
+Après avoir dit le mot clé : "Faire équipe ? Tout pour sortir de cet enfer et venger ma soeur"
+Si déja team avec traître: "Faire équipe avec un assassin comme lui ? JAMAIS !" 
+Après avoir perdu contre la bête: "Je n'aurais jamais dû vous faire confiance. Je suis désolé Élisabeth "
+Après avoir vaincu la bête:  "arg... Nous avons enfin vaincu la bête et la nuit eternelle.  Tu peux enfin te reposer Eli."
+
+
+
+
+Page 1:
+"Le petit village de HamShire n'a pas connu le soleil depuis plusieurs mois.  La pleine lune éternelle est la seule source
+de lumière pour éclairer les malheurs de ses habitants. Cette étrange situation coincide avec l'arriver
+d'une grande bête de forme porcine dans la forêt."
+
+
+Page 2: (Qui ouvre dialogue avec friendly)
+"
+Le porcin infernal à encore frapper la nuit dernière.  Il a emporter 4 victimes dans sa furreur, dont Élisabeth,
+la soeur d'une chasserèsse local"
+
+
+Page 3: "La communauté de HamShire était reconnu pour ses récoltes de background-color: transparent;s à profusion, mais depuis l'arrivé de la bête, la folie 
+s'est emparé du coeurs des habitants"
