@@ -105,6 +105,17 @@ export class CombatComponent implements OnInit {
       this.currentEnemy.currentHealth -= this.player.damage
     }
 
+    if(this.currentEnemy.id == 3 && this.currentEnemy.currentHealth <= 50) {
+      this.audio.play('sfx-shotgun');
+      this._globalService.trahison = true;
+      this._globalService.currentEnemy.finalQuote = "Petite leçon de vie, gamin. Lorsqu'il y a de l'argent en jeu, il ne faut faire confiance à personne! Avec ta mort, je conserverai la totalité de la prime! AH AH AH"
+
+      this.audio.pause('music-combat-boss');
+      this._globalService.isInCombat = false;
+      this.player.positionX = 500;
+      this.player.positionY = 500;
+    }
+
     if(this.currentEnemy.currentHealth <= 0) {
       this.leaveCombat();
       this.audio.pause('music-combat-hunter1');

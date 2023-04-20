@@ -22,6 +22,7 @@ export class GameoverComponent implements OnInit {
     this.globalService.player.positionY = 200;
 
     this.globalService.player.currentHealth = this.globalService.player.maxHealth;
+    this.globalService.player.damage = 10;
     this.globalService.currentEnemy === this.globalService.hunter1;
     this.globalService.greatBeast.currentHealth = this.globalService.greatBeast.maxHealth;
     this.globalService.hunter1.currentHealth = this.globalService.hunter1.maxHealth;
@@ -41,6 +42,9 @@ export class GameoverComponent implements OnInit {
     this.globalService.minion34.isDefeated = false;
     this.globalService.greatBeast.isDefeated = false;
     this.globalService.hasPickedUpHax = false;
+    this.globalService.trahison = false;
+    this.globalService.currentEnemy.finalQuote = "La grande bête de Hamshire vous a terrassée. Qui pourra mettre fin à la nuit éternelle ?  Peut-être qu'une meilleure arme ou l'aide de quelqu'un aurait pu vous aider"
+    this.globalService.player.weaponPickedUp = [this.globalService.empty]
 
     this.audio.pause('stinger-mort');
   }

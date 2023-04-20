@@ -1,4 +1,5 @@
 <div class="body">
-  <p>{{this.globalService.currentEnemy.finalQuote}}</p>
+  <p *ngIf="this.globalService.trahison">{{this.globalService.hunter1.name}} : {{this.globalService.currentEnemy.finalQuote}}</p>
+  <p *ngIf="!this.globalService.trahison">{{this.globalService.currentEnemy.finalQuote}}</p>
   <button class="btn" (click)="goToMenu()">Recommencer</button>
 </div>

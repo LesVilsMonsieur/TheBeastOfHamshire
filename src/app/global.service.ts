@@ -18,6 +18,8 @@ export class GlobalService {
     isCombatMinion21 = true;
     isCombatMinion34 = true;
 
+    trahison = false;
+
     //Weapons
     currentWeaponIndex = 0;
     hasPickedUpHax = false;
@@ -39,7 +41,7 @@ export class GlobalService {
     player : Player = {
         currentHealth : 100,
         maxHealth : 100,
-        damage : 9,
+        damage : 10,
         positionX : 300,
         positionY : 300,
         dead : false,
@@ -80,9 +82,9 @@ export class GlobalService {
     greatBeast : Enemy = {
         id : 3,
         name : 'Great Beast of HamShire',
-        currentHealth : 400,
-        maxHealth : 400,
-        damage : 20,
+        currentHealth : 350,
+        maxHealth : 350,
+        damage : 15,
         combatImageUrl : '/assets/Monstre.png',
         dialogImageUrl : '',
         combatImageSangUrl : '/assets/MonstreSANGOVER.png',
