@@ -36,7 +36,7 @@ export class DialogComponent implements OnInit {
       // Dialogue avec Jhon et AVEC alliance
     if(this.currentEnemy.id == 1 &&  this._globalService.isTraitorHelping) {
       this.audio.play('music-dialog-hunter1');
-      this.currentDialog = this.currentEnemy.name + " : On se rejoint sur le champ de bataille gamin, question de teresser la bête et d'empocher la prime.";
+      this.currentDialog = this.currentEnemy.name + " : On se rejoint sur le champ de bataille gamin, question de terrasser la bête et d'empocher la prime.";
 
       this._globalService.isCombatTraitor = false;
     }
@@ -65,7 +65,7 @@ export class DialogComponent implements OnInit {
     this.currentDialog = '';
     if(this.currentEnemy.id == 1) {
       this.audio.play('sfx-crayon');
-      this.myCurrentDialog = "Moi : J'ai vu qu'il avait une prime de 500 livres pour tuer la bete, voudriez-vous faire équipe et partager cette somme?"
+      this.myCurrentDialog = "Moi : J'ai vu qu'il y avait une prime de 500 livres pour tuer la bête, voudriez-vous faire équipe et partager cette somme?"
       setTimeout(() => {
         this.audio.play('sfx-crayon');
         if(this._globalService.isFriendlyHelping) {
@@ -73,7 +73,7 @@ export class DialogComponent implements OnInit {
         } else {
 
     this._globalService.isTraitorHelping =true;
-          this.currentDialog = this.currentEnemy.name + " : Astucieux gamin... Je suis d'accord. On divise la prime à part égal.  On se rejoint sur le champ de bataille."
+          this.currentDialog = this.currentEnemy.name + " : Astucieux gamin... Je suis d'accord. On divise la prime à part égale.  On se rejoint sur le champ de bataille."
         }
       }, 1000)
 

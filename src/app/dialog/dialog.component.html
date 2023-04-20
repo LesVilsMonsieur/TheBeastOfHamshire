@@ -6,7 +6,7 @@
             <p>{{ currentDialog }}</p>
         </div>
         <div class="button">
-            <button *ngIf="(isSister == true && currentEnemy.id === 2) || (isWanted == true && currentEnemy.id === 1)" (click)="teamUp()">Faire equipe</button>
+            <button *ngIf="(isSister == true && currentEnemy.id === 2) || (isWanted == true && currentEnemy.id === 1)" (click)="teamUp()">Faire équipe</button>
             <button (click)="engage()">Attaquer</button>
             <button (click)="quit()">Quitter</button>
         </div>
